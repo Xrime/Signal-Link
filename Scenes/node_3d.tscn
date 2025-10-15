@@ -36,11 +36,7 @@ ao_texture = ExtResource("7_ahc04")
 [sub_resource type="BoxShape3D" id="BoxShape3D_cb6ip"]
 size = Vector3(16, 3, 0.2)
 
-[sub_resource type="Environment" id="Environment_062e5"]
-background_mode = 2
-ambient_light_source = 2
-ambient_light_color = Color(0.101961, 0.101961, 0.101961, 1)
-ambient_light_energy = 0.15
+[sub_resource type="Environment" id="Environment_rvjhm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rvjhm"]
 
@@ -110,7 +106,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i0g27")
 shape = SubResource("BoxShape3D_cb6ip")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_062e5")
+environment = SubResource("Environment_rvjhm")
 
 [node name="signal_terminal" parent="." instance=ExtResource("9_worak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -7)
