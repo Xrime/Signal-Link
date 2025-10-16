@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://j7hthnpqub56"]
+[gd_scene load_steps=10 format=3 uid="uid://j7hthnpqub56"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_q4cgo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvvin"]
-albedo_color = Color(0.359069, 0.359069, 0.359069, 1)
-roughness = 0.6
-emission_enabled = true
-emission = Color(0, 1, 0.8, 1)
-emission_energy_multiplier = 2.0
+[ext_resource type="Script" uid="uid://dxh1ndvrthn6q" path="res://Scenes/signal_terminal.gd" id="1_rhbul"]
+[ext_resource type="Script" uid="uid://cheqpv3kb2s8a" path="res://Scenes/terminal_a.gd" id="2_b2nfb"]
+[ext_resource type="Script" uid="uid://bqp8eqm7tafxn" path="res://Scenes/terminal_b.gd" id="3_puogd"]
 
 [sub_resource type="Environment" id="Environment_gnw4p"]
 glow_enabled = true
@@ -16,15 +11,45 @@ glow_blend_mode = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q4cgo"]
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_gtf74"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhbul"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_txlfp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2nfb"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 3.0
+
 [node name="signal_terminal" type="MeshInstance3D"]
-mesh = SubResource("CylinderMesh_q4cgo")
-surface_material_override/0 = SubResource("StandardMaterial3D_tvvin")
+script = ExtResource("1_rhbul")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gnw4p")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="TerminalA" type="Area3D" parent="."]
+script = ExtResource("2_b2nfb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TerminalA"]
 transform = Transform3D(2, 0.00123675, -0.000769622, -0.00123651, 2, 0.000675796, 0.000770008, -0.000675356, 2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_q4cgo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TerminalA"]
+mesh = SubResource("CylinderMesh_gtf74")
+surface_material_override/0 = SubResource("StandardMaterial3D_rhbul")
+
+[node name="TerminalB" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 14)
+script = ExtResource("3_puogd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TerminalB"]
+transform = Transform3D(2, 0.00123675, -0.000769622, -0.00123651, 2, 0.000675796, 0.000770008, -0.000675356, 2, 0, 0, 0)
+shape = SubResource("CylinderShape3D_q4cgo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TerminalB"]
+mesh = SubResource("CylinderMesh_txlfp")
+surface_material_override/0 = SubResource("StandardMaterial3D_b2nfb")

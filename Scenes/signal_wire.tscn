@@ -23,5 +23,6 @@ curve = SubResource("Curve3D_3idkh")
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_ddjjx")
 surface_material_override/0 = SubResource("StandardMaterial3D_rbrvn")
