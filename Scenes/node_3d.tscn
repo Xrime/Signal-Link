@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cr825e8ekt0nk"]
+[gd_scene load_steps=22 format=3 uid="uid://cr825e8ekt0nk"]
 
 [ext_resource type="Script" uid="uid://wyd5tdlha11h" path="res://script/node_3d.gd" id="1_aeo3b"]
 [ext_resource type="Texture2D" uid="uid://ccnd35odvai8v" path="res://Assets/Concrete012_1K-PNG/Concrete012_1K-PNG_Color.png" id="2_worak"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://ckvpnyu6b7xlk" path="res://Assets/corrugated_iron_02_1k/textures/corrugated_iron_02_disp_1k.png" id="8_8cye3"]
 [ext_resource type="PackedScene" uid="uid://j7hthnpqub56" path="res://Scenes/signal_terminal.tscn" id="9_worak"]
 [ext_resource type="PackedScene" uid="uid://bj32ybbdp5t88" path="res://Scenes/player.tscn" id="10_rvjhm"]
+[ext_resource type="PackedScene" uid="uid://kxplxkad3ddr" path="res://Scenes/NPC.tscn" id="11_cb6ip"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_cb6ip"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3v7ru"]
 
@@ -46,15 +49,18 @@ size = Vector3(3, 2, 2)
 [node name="Room" type="Node3D"]
 script = ExtResource("1_aeo3b")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_cb6ip")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 0, 0, 0)
 mesh = SubResource("PlaneMesh_3v7ru")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_tcnuu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_rvjhm")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
@@ -135,3 +141,21 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 shape = SubResource("BoxShape3D_vudi7")
+
+[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_cb6ip")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.8, 0)
+patrol_points = [NodePath("../PatrolPonits/Point1"), NodePath("../PatrolPonits/Point2"), NodePath("../PatrolPonits/Point3"), NodePath("../PatrolPonits/Point4")]
+
+[node name="PatrolPonits" type="Node3D" parent="."]
+
+[node name="Point1" type="Node3D" parent="PatrolPonits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -6)
+
+[node name="Point2" type="Node3D" parent="PatrolPonits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Point3" type="Node3D" parent="PatrolPonits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 4)
+
+[node name="Point4" type="Node3D" parent="PatrolPonits"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 1)
