@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://kxplxkad3ddr" path="res://Scenes/NPC.tscn" id="11_cb6ip"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cb6ip"]
+vertices = PackedVector3Array(-7.5, 0.5, -7.5, -7.5, 0.5, 7.5, 7.5, 0.5, 7.5, 7.5, 0.5, -7.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 0
+cell_height = 2.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3v7ru"]
 

@@ -20,6 +20,13 @@ shape = SubResource("CapsuleShape3D_ny8nj")
 mesh = SubResource("CapsuleMesh_ibu5b")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.999833, -0.0177294, -0.00434907, 0.0182045, 0.986068, 0.165347, 0.00135697, -0.165398, 0.986226, 0, 1.5, 0.9)
+light_energy = 2.5
+light_volumetric_fog_energy = 2.0
+spot_range = 10.0
+spot_attenuation = -1.0
+spot_angle = 20.0
+spot_angle_attenuation = 0.965939
 
 [node name="Area3D" type="Area3D" parent="SpotLight3D"]
 
