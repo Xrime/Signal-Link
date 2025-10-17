@@ -3,7 +3,6 @@ class_name SignalWire
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @export var pickup_radius := 3.0
-
 var picked_up := false
 var is_active := false
 
@@ -16,7 +15,7 @@ func pick_up(player_pos: Vector3) -> void:
 	global_transform.origin = player_pos
 	picked_up = true
 	is_active = true
-	print("✅ Wire picked up!")
+	print("Wire picked up")
 
 func update_position(player_pos: Vector3) -> void:
 	if is_active:
@@ -26,6 +25,6 @@ func drop(at_terminal: bool) -> void:
 	is_active = false
 	picked_up = false
 	if at_terminal:
-		print("🎉 Wire connected! Player wins!")
+		print("Wire connected")
 	else:
-		print("⚙️ Wire dropped on the floor.")
+		print("Wire dropped")

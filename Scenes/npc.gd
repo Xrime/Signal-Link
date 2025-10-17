@@ -21,6 +21,11 @@ func _physics_process(delta: float) -> void:
 	velocity =direction*speed
 	move_and_slide()
 	print(agent.get_next_path_position())
-
+	if direction.length()>0.1:
+		var target = global_transform.origin+direction
+		var current =global_transform.basis.get_euler().y
+		var target_root = atan2(-direction.x, -direction.z)
+		var new = lerp_angle(current, target_root,delta*6.0)
+		rotation.y=new
 	
 	
