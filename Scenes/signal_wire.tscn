@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw0p6yusesd2m"]
+[gd_scene load_steps=4 format=3 uid="uid://bw0p6yusesd2m"]
 
-[ext_resource type="Script" uid="uid://crggony5a42ch" path="res://signal_wire.gd" id="1_48pn5"]
-
-[sub_resource type="Curve3D" id="Curve3D_3idkh"]
+[ext_resource type="Script" uid="uid://crggony5a42ch" path="res://SignalWire.gd" id="1_48pn5"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ddjjx"]
 top_radius = 0.05
@@ -14,15 +12,11 @@ emission_enabled = true
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 5.0
 
-[node name="SignalWire" type="Node3D"]
+[node name="SignalWire" type="Node3D" groups=["SignalWire", "TerminalA", "TerminalB"]]
 script = ExtResource("1_48pn5")
 
-[node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_3idkh")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_ddjjx")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_rbrvn")

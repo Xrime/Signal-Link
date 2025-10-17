@@ -6,10 +6,10 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		body.near_terminal_a = true
-		print("Player entered Terminal A")
+		body.near_terminal_b = true
+		print("Player entered Terminal B")
 
 func _on_body_exited(body):
 	if body.name == "Player":
-		body.near_terminal_a = false
-		print("Player exited Terminal A")
+		body.near_terminal_b = false
+		print("Player exited Terminal B")
