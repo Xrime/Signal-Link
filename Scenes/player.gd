@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var terminal_a: Area3D
 @export var terminal_b: Area3D
-@export var speed := 2.0
+@export var speed := 3.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var direction := Vector3.ZERO
 var carrying_wire := false
@@ -46,7 +46,7 @@ func _physics_process(delta):
 		var new = lerp_angle(current, target_root,delta*6.0)
 		rotation.y=new
 func _process(_delta):
-	if Input.is_action_just_pressed("Enter") and near_terminal_a and not carrying_wire:
+	if Input.is_action_just_pressed("Enter") and not carrying_wire:
 		for w in get_tree().get_nodes_in_group("SignalWire"):
 			var wire = w as SignalWire
 			if wire and not wire.picked_up:
