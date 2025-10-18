@@ -8,6 +8,7 @@
 
 [node name="Player" type="CharacterBody3D" groups=["Player", "SignalWire", "TerminalA", "TerminalB"]]
 script = ExtResource("1_v0iea")
+speed = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_cvnsp")

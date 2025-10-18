@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cr825e8ekt0nk"]
+[gd_scene load_steps=25 format=3 uid="uid://cr825e8ekt0nk"]
 
 [ext_resource type="Script" uid="uid://wyd5tdlha11h" path="res://script/node_3d.gd" id="1_aeo3b"]
 [ext_resource type="Texture2D" uid="uid://ccnd35odvai8v" path="res://Assets/Concrete012_1K-PNG/Concrete012_1K-PNG_Color.png" id="2_worak"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bj32ybbdp5t88" path="res://Scenes/player.tscn" id="10_rvjhm"]
 [ext_resource type="PackedScene" uid="uid://kxplxkad3ddr" path="res://Scenes/NPC.tscn" id="11_cb6ip"]
 [ext_resource type="PackedScene" uid="uid://bw0p6yusesd2m" path="res://Scenes/signal_wire.tscn" id="12_vudi7"]
+[ext_resource type="PackedScene" uid="uid://cd573cefnp3ne" path="res://Scenes/TimerUI.tscn" id="14_ahc04"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cb6ip"]
 vertices = PackedVector3Array(-7.5, 0.5, -7.5, -7.5, 0.5, 7.5, 7.5, 0.5, 7.5, 7.5, 0.5, -7.5)
@@ -171,3 +172,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 4)
 
 [node name="Point4" type="Node3D" parent="PatrolPonits"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 1)
+
+[node name="TimerUi" parent="." instance=ExtResource("14_ahc04")]

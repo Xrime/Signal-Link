@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://lukcpr1l2rgq"]
+
+[ext_resource type="Script" uid="uid://dkuh35i5y4eje" path="res://control.gd" id="1_sjmnu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjmnu")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1141.0
+offset_bottom = 653.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
