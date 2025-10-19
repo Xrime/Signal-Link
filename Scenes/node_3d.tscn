@@ -54,7 +54,7 @@ size = Vector3(3, 2, 2)
 [node name="Room" type="Node3D" groups=["SignalWire", "TerminalA", "TerminalB"]]
 script = ExtResource("1_aeo3b")
 
-[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_cb6ip")]
+[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") groups=["GameOverUI"] instance=ExtResource("11_cb6ip")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.8, 0)
 patrol_points = [NodePath("../PatrolPonits/Point1"), NodePath("../PatrolPonits/Point2"), NodePath("../PatrolPonits/Point3"), NodePath("../PatrolPonits/Point4")]
 

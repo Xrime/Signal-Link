@@ -79,13 +79,17 @@ normal_texture = ExtResource("17_adr3h")
 [node name="Room2" type="Node3D" groups=["SignalWire", "TerminalA", "TerminalB"]]
 script = ExtResource("1_y6ew2")
 
-[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_lhtnj")]
+[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") groups=["GameOverUI"] instance=ExtResource("13_lhtnj")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.8, -3)
 patrol_points = [NodePath("../PatrolPonits/Point1"), NodePath("../PatrolPonits/Point3"), NodePath("../PatrolPonits/Point2"), NodePath("../PatrolPonits/Point8"), NodePath("../PatrolPonits/Point9")]
 
-[node name="MCP AI2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("13_lhtnj")]
+[node name="MCP AI2" parent="." node_paths=PackedStringArray("patrol_points") groups=["GameOverUI"] instance=ExtResource("13_lhtnj")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6, 0.8, -1)
 patrol_points = [NodePath("../PatrolPonits/Point4"), NodePath("../PatrolPonits/Point5"), NodePath("../PatrolPonits/Point7"), NodePath("../PatrolPonits/Point6"), NodePath("../PatrolPonits/Point10"), NodePath("../PatrolPonits/Point11")]
+
+[node name="MCP AI3" parent="." node_paths=PackedStringArray("patrol_points") groups=["GameOverUI"] instance=ExtResource("13_lhtnj")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -12, 0.8, 4)
+patrol_points = [NodePath("../PatrolPonits/Point12"), NodePath("../PatrolPonits/Point13")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["SignalWire", "TerminalA", "TerminalB"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.111, 0)
@@ -158,7 +162,7 @@ shape = SubResource("BoxShape3D_cb6ip")
 environment = SubResource("Environment_rvjhm")
 
 [node name="Player" parent="." node_paths=PackedStringArray("terminal_a", "terminal_b") instance=ExtResource("9_oxn7e")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5, 0.8, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 12.0338, 0.8, 14.546)
 terminal_a = NodePath("../TerminalA")
 terminal_b = NodePath("../TerminalB")
 
@@ -224,7 +228,7 @@ mesh = SubResource("BoxMesh_w71rq")
 surface_material_override/0 = SubResource("StandardMaterial3D_o6p6v")
 
 [node name="StaticBody3D11" type="StaticBody3D" parent="Office1"]
-transform = Transform3D(-2.18557e-07, 0, 0.2, 0, 4, 0, -5, 0, -8.74228e-09, 11, 2, 8)
+transform = Transform3D(-2.18557e-07, 0, 0.2, 0, 4, 0, -5, 0, -8.74228e-09, 11, 2, 5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Office1/StaticBody3D11"]
 shape = SubResource("BoxShape3D_oxn7e")
@@ -244,7 +248,7 @@ mesh = SubResource("BoxMesh_w71rq")
 surface_material_override/0 = SubResource("StandardMaterial3D_o6p6v")
 
 [node name="StaticBody3D19" type="StaticBody3D" parent="Office1"]
-transform = Transform3D(-2.18557e-07, 0, 0.2, 0, 4, 0, -5, 0, -8.74228e-09, 6, 2, 9.5)
+transform = Transform3D(-2.18557e-07, 0, 0.2, 0, 4, 0, -5, 0, -8.74228e-09, 6, 2, 7.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Office1/StaticBody3D19"]
 shape = SubResource("BoxShape3D_oxn7e")
@@ -264,7 +268,7 @@ mesh = SubResource("BoxMesh_w71rq")
 surface_material_override/0 = SubResource("StandardMaterial3D_o6p6v")
 
 [node name="StaticBody3D18" type="StaticBody3D" parent="Office1"]
-transform = Transform3D(-2.18557e-07, 0, 0.2, 0, 4, 0, -5, 0, -8.74228e-09, 1.5, 2, 7)
+transform = Transform3D(-2.18557e-07, 0, 0.2, 0, 4, 0, -5, 0, -8.74228e-09, 1.5, 2, 9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Office1/StaticBody3D18"]
 shape = SubResource("BoxShape3D_oxn7e")
@@ -344,7 +348,7 @@ mesh = SubResource("BoxMesh_w71rq")
 surface_material_override/0 = SubResource("StandardMaterial3D_o6p6v")
 
 [node name="StaticBody3D30" type="StaticBody3D" parent="Office1"]
-transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 0.2, -14, 2, 4.5)
+transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 0.2, -12, 2, 4.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Office1/StaticBody3D30"]
 shape = SubResource("BoxShape3D_oxn7e")
@@ -400,6 +404,16 @@ transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 0.2, 3.5, 2, 0)
 shape = SubResource("BoxShape3D_oxn7e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Office1/StaticBody3D21"]
+mesh = SubResource("BoxMesh_w71rq")
+surface_material_override/0 = SubResource("StandardMaterial3D_o6p6v")
+
+[node name="StaticBody3D32" type="StaticBody3D" parent="Office1"]
+transform = Transform3D(4.5, 0, 0, 0, 4, 0, 0, 0, 0.2, 3.8, 2, 4.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Office1/StaticBody3D32"]
+shape = SubResource("BoxShape3D_oxn7e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Office1/StaticBody3D32"]
 mesh = SubResource("BoxMesh_w71rq")
 surface_material_override/0 = SubResource("StandardMaterial3D_o6p6v")
 
@@ -513,7 +527,7 @@ transform = Transform3D(6.8, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_hls86")
 
 [node name="ene2" type="MeshInstance3D" parent="Office2/ene7"]
-transform = Transform3D(6.8, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(6.2, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_s04iq")
 surface_material_override/0 = SubResource("StandardMaterial3D_hls86")
 
@@ -577,4 +591,14 @@ transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 2.28117,
 [node name="Point11" type="Node3D" parent="PatrolPonits"]
 transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.47835, 0, 2.96741)
 
+[node name="Point12" type="Node3D" parent="PatrolPonits"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -1.05036, 0, -1.23025)
+
+[node name="Point13" type="Node3D" parent="PatrolPonits"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -1.2186, 0, -5.30421)
+
 [node name="TimerUi" parent="." instance=ExtResource("14_d24mi")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.38819e-08, 0.996187, 0, -1.0039, -4.35447e-08, 0, 50, 0)
+fov = 45.0

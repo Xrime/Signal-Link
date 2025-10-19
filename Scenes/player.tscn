@@ -16,12 +16,12 @@ shape = SubResource("CapsuleShape3D_cvnsp")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_6t5aa")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
+[node name="SpringArm" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.5, 0)
 spring_length = 5.0
 margin = 0.2
 
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+[node name="PlayerCamera" type="Camera3D" parent="SpringArm"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.5, 0.9)
@@ -32,3 +32,7 @@ shadow_enabled = true
 spot_range = 10.0
 spot_attenuation = -1.0
 spot_angle = 20.0
+
+[node name="OverviewCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 50, 0)
+fov = 45.0

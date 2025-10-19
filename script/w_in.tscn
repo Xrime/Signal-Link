@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://8rjjr83ultiy"]
+[gd_scene load_steps=2 format=3 uid="uid://beplbh0ypanp1"]
 
-[ext_resource type="Script" uid="uid://bbvuk01vut52g" path="res://game_over.gd" id="1_40baj"]
+[ext_resource type="Script" uid="uid://cg54e2ucvm586" path="res://script/w_in.gd" id="1_t5la7"]
 
-[node name="Node2D" type="Node2D" groups=["GameOver"]]
-script = ExtResource("1_40baj")
+[node name="WIn" type="Node2D" groups=["GameOver"]]
+script = ExtResource("1_t5la7")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -43,7 +43,7 @@ scale = Vector2(0.996546, 1.94733)
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Game Over"
+text = "You Win"
 horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer"]

@@ -9,6 +9,10 @@ var carrying_wire := false
 var wire_ref: SignalWire = null
 var near_terminal_a := false
 var near_terminal_b := false
+var win : PackedScene =preload("res://script/w_in.tscn")
+@onready var player_camera = $SpringArm/PlayerCamera
+@onready var map_camera = $OverviewCamera
+var using_map_view = false
 
 func _ready():
 	if terminal_a:
@@ -62,8 +66,21 @@ func _process(_delta):
 			print("Player dropped wire.")
 			carrying_wire = false
 			wire_ref = null
+			if near_terminal_b:
+				var scene_instance = win.instantiate()
+				if get_tree().current_scene:
+					get_tree().current_scene.queue_free()
+					get_tree().current_scene =scene_instance
+				
 		else:
 			print("Tried to drop, but no wire is being carried.")
+			
+	if Input.is_action_just_pressed("switch_camera"):
+		using_map_view = !using_map_view
+		if using_map_view:
+			map_camera.make_current()
+		else:
+			player_camera.make_current()
 
 func _on_terminal_a_entered(body):
 	if body == self:
