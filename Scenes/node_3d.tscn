@@ -15,11 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://bw0p6yusesd2m" path="res://Scenes/signal_wire.tscn" id="12_vudi7"]
 [ext_resource type="PackedScene" uid="uid://cd573cefnp3ne" path="res://Scenes/TimerUI.tscn" id="14_ahc04"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_cb6ip"]
-vertices = PackedVector3Array(-7.5, 0.5, -7.5, -7.5, 0.5, 7.5, 7.5, 0.5, 7.5, 7.5, 0.5, -7.5)
+[sub_resource type="NavigationMesh" id="NavigationMesh_ahc04"]
+vertices = PackedVector3Array(-7.5, 0.45, -7.5, -7.5, 0.45, 7.5, 7.5, 0.45, 7.5, 7.5, 0.45, -7.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-geometry_parsed_geometry_type = 0
-cell_height = 2.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3v7ru"]
 
@@ -56,8 +54,12 @@ size = Vector3(3, 2, 2)
 [node name="Room" type="Node3D" groups=["SignalWire", "TerminalA", "TerminalB"]]
 script = ExtResource("1_aeo3b")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_cb6ip")
+[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_cb6ip")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.8, 0)
+patrol_points = [NodePath("../PatrolPonits/Point1"), NodePath("../PatrolPonits/Point2"), NodePath("../PatrolPonits/Point3"), NodePath("../PatrolPonits/Point4")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["SignalWire", "TerminalA", "TerminalB"]]
+navigation_mesh = SubResource("NavigationMesh_ahc04")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
 
@@ -121,8 +123,11 @@ shape = SubResource("BoxShape3D_cb6ip")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rvjhm")
 
-[node name="Player" parent="." instance=ExtResource("10_rvjhm")]
+[node name="Player" parent="." node_paths=PackedStringArray("terminal_a", "terminal_b") instance=ExtResource("10_rvjhm")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5, 0.8, 0)
+terminal_a = NodePath("../TerminalA")
+terminal_b = NodePath("../TerminalB")
+speed = 8.0
 
 [node name="TerminalA" parent="." instance=ExtResource("9_worak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -7.425)
@@ -154,10 +159,6 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 shape = SubResource("BoxShape3D_vudi7")
-
-[node name="MCP AI" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("11_cb6ip")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.8, 0)
-patrol_points = [NodePath("../PatrolPonits/Point1"), NodePath("../PatrolPonits/Point2"), NodePath("../PatrolPonits/Point3"), NodePath("../PatrolPonits/Point4")]
 
 [node name="PatrolPonits" type="Node3D" parent="."]
 

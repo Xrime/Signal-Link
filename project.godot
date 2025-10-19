@@ -33,6 +33,8 @@ TerminalA=""
 TerminalB=""
 SignalWire=""
 Player=""
+GameOverUI=""
+GameOver=""
 
 [input]
 

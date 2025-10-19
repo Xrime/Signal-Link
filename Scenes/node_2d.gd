@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var timer_label = $CanvasLayer/Label
+@onready var timer_label = $Control/CanvasLayer/Label
 
 @export var start_time: float = 60.0
 var time_left: float
