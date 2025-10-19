@@ -1,7 +1,7 @@
 **__Signal Link__**
 
 
-Signal Link is a 3D puzzle game built with Godot where player have to go the the enemy terminal to pick their signal and then conect it to their own to peap at their network. The game consist of NPC (Non player Character) that patrol around the signal point not to allow anyone to pick their signal , the player including the enemy are equiped with flashlight which serve as their line of sight so the player will always want to avoid light area to avoid been detected. And also the moment the player pickup the signal the NPC will recieve an alert and start chasing the player, the player can drop the signal on the floor to avoid been catch and pic it tup later. Right now their is only one map in the game and their is no animation just a simple nice prototype upgrade is cominge.
+Signal Link is a 3D puzzle game built with Godot where the player has to go to the enemy terminal to pick their signal and then connect it to their own to peep at their network. The game consists of NPCs (Non-Player Characters) that patrol around the signal point to prevent anyone from picking their signal. The player, including the enemy, is equipped with a flashlight which serves as their line of sight, so the player will always want to avoid light areas to avoid being detected. Also, the moment the player picks up the signal, the NPC will receive an alert and start chasing the player. The player can drop the signal on the floor to avoid being caught and pick it up later. Right now, there is only one map in the game and there are no animations, just a simple nice prototype. An upgrade is coming.
 
 ##Features
 -A hand built 3D environment 
